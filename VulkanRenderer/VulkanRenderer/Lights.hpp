@@ -3,7 +3,7 @@
 #define LIGHTS_HPP
 
 #include <glm/glm.hpp>
-struct DirectionalLight{
+struct alignas(16)DirectionalLight{
 	glm::vec3 direction;
 	float intensity = 0.5f;
 	float zNear = 0.1f;

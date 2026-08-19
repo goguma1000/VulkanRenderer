@@ -11,7 +11,7 @@ namespace GlobalStructs {
 		glm::mat4 proj = glm::mat4(1);
 	};
 
-	struct FragmentShaderUBO
+	struct alignas(16)FragmentShaderUBO
 	{
 		DirectionalLight dirLight;
 		glm::vec3 cameraPos;

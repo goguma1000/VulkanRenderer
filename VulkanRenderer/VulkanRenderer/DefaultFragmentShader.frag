@@ -125,7 +125,6 @@ void main(){
 	vec3 N = normalize(inNormal);
 	vec3 dir = normalize(-directionalLight.dir);
 	vec3 R =   normalize(2*dot(N,dir)*N - dir);
-	
 	vec3 view = normalize(ubo.cameraPos - worldPos);
 	float shadow = PCSS(lightSpaceFragPos);
 	//shadow = shadow >= 1.0f ? shadow : shadow + 0.2f;

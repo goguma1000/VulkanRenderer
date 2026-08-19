@@ -287,7 +287,7 @@ int main()
 	model.SetPosition(pos);
 	plane = PrimitiveMesh::CreateQuad();
 	plane.SetPosition(0.0, 0.0f, -0.5f);
-	sun.direction = glm::vec3(-1.0f, -0.2f, 0.5f);
+	sun.direction = glm::vec3(-1.0f, -0.5f, 0.5f);
 	sun.intensity = 2.0f;
 	frag_ubo.dirLight = sun;
 	PrepareShadowMap();
@@ -298,6 +298,7 @@ int main()
 		ProcessInput(window, deltaTime);
 		//render
 		renderer->Render();
+		printf("x: %f, y: %f, z: %f\n", mainCamera.position.x, mainCamera.position.y, mainCamera.position.z);
 	}
 
 	vkDeviceWaitIdle(renderer->device);

@@ -109,7 +109,7 @@ public:
 		theta += xoffset;
 		phi += yoffset;
 		
-		glm::clamp(phi, -89.f, 89.f);
+		phi = glm::clamp(phi, -89.f, 89.f);
 		UpdateCameraCoord(glm::radians(theta), glm::radians(-phi));
 	}
 
