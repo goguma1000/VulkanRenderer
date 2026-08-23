@@ -1,0 +1,507 @@
+<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" FontFamily="Segoe UI" FontSize="12">
+  <FlowDocument.Tag><![CDATA[{
+  "timestamp": "2026-08-21 01:12:45",
+  "files": {
+    "C:\\Users\\zzzeh\\Desktop\\VKRender\\VulkanRenderer\\VulkanRenderer\\VulkanRenderer.vcxproj": {
+      "before": "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",
+      "after": "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"
+    }
+  }
+}]]></FlowDocument.Tag>
+  <Section Margin="0,24" TextAlignment="Center">
+    <Paragraph FontSize="24" FontWeight="Bold" Margin="12,0">
+      <LineBreak />
+      <Span Foreground="Gray">Qt Visual Studio Tools</Span>
+    </Paragraph>
+    <Paragraph FontSize="42" Margin="12,0" FontWeight="Bold">
+      <Span TextDecorations="Underline">Project Format Conversion</Span>
+    </Paragraph>
+    <Paragraph Margin="12,8" FontSize="18">
+      <Span>Report generated on 2026-08-21 01:12:45</Span>
+    </Paragraph>
+  </Section>
+  <Section>
+    <Paragraph FontSize="32" FontWeight="Bold" Margin="12,0">
+      <Span>Files</Span>
+    </Paragraph>
+    <Paragraph Margin="24,12,0,0">
+      <Span FontFamily="Consolas" FontSize="14" Background="WhiteSmoke"><![CDATA[C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj]]></Span>
+      <LineBreak />
+      <Hyperlink NavigateUri="file://C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj?before">[Before]</Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj?after">[After]</Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj?diff&amp;before&amp;after">
+                        [Diff before/after]
+                    </Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj?diff&amp;before&amp;current">
+                        [Diff before/current]
+                    </Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj?diff&amp;after&amp;current">
+                        [Diff after/current]
+                    </Hyperlink>
+      <LineBreak />
+    </Paragraph>
+  </Section>
+  <Section>
+    <Paragraph FontSize="32" FontWeight="Bold" Margin="12,0">
+      <Span>Changes</Span>
+    </Paragraph>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Converting custom build steps to Qt/MSBuild items]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span><![CDATA[      ]]></Span><Span Background="LightCoral"><![CDATA[<AdditionalIncludeDirectories>$]]></Span><Span><![CDATA[(SolutionDir)Include;</AdditionalIncludeDirectories>]]></Span>
+            </Paragraph>
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span><![CDATA[      ]]></Span><Span Background="LightGreen"><![CDATA[<AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;$]]></Span><Span><![CDATA[(SolutionDir)Include;</AdditionalIncludeDirectories>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span><![CDATA[      ]]></Span><Span Background="LightCoral"><![CDATA[<AdditionalIncludeDirectories>$]]></Span><Span><![CDATA[(SolutionDir)Include;</AdditionalIncludeDirectories>]]></Span>
+            </Paragraph>
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span><![CDATA[      ]]></Span><Span Background="LightGreen"><![CDATA[<AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;$]]></Span><Span><![CDATA[(SolutionDir)Include;</AdditionalIncludeDirectories>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span><![CDATA[      ]]></Span><Span Background="LightCoral"><![CDATA[<AdditionalIncludeDirectories>$]]></Span><Span><![CDATA[(SolutionDir)/VulkanRenderer;$(SolutionDir)Include</AdditionalIncludeDirectories>]]></Span>
+            </Paragraph>
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span><![CDATA[      ]]></Span><Span Background="LightGreen"><![CDATA[<AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;$]]></Span><Span><![CDATA[(SolutionDir)/VulkanRenderer;$(SolutionDir)Include</AdditionalIncludeDirectories>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span><![CDATA[      ]]></Span><Span Background="LightCoral"><![CDATA[<AdditionalIncludeDirectories>$]]></Span><Span><![CDATA[(SolutionDir)/VulkanRenderer;$(SolutionDir)Include</AdditionalIncludeDirectories>]]></Span>
+            </Paragraph>
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span><![CDATA[      ]]></Span><Span Background="LightGreen"><![CDATA[<AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;$]]></Span><Span><![CDATA[(SolutionDir)/VulkanRenderer;$(SolutionDir)Include</AdditionalIncludeDirectories>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Enabling multi-processor compilation]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Project format version]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Keyword>QtVS_v304</Keyword>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Fallback for QTMSBUILD environment variable]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Default Qt properties]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt build settings]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Warn if Qt/MSBuild is not found]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  </Target>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt property sheet]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt targets]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\zzzeh\Desktop\VKRender\VulkanRenderer\VulkanRenderer\VulkanRenderer.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+  </Section>
+  <Section>
+    <Paragraph />
+  </Section>
+</FlowDocument>
+<!--fXPH021KKtv3jSFGfRLhqrkWJbMf9kEdSku2pW7Ibrw=-->

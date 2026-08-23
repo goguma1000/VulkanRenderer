@@ -13,6 +13,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include "Model/Model.hpp"
 
+
 void CreateShadowMap(int, VkCommandBuffer);
 
 const uint32_t WIDTH = 800;
@@ -26,7 +27,6 @@ Model model;
 Model plane;
 GlobalStructs::VertexShaderUBO vert_ubo{};
 GlobalStructs::FragmentShaderUBO frag_ubo{};
-
 FrameBuffer shadowFramebuffer;
 Texture shadowMap;
 VkSampler shadowSampler;
@@ -277,7 +277,7 @@ void PrepareShadowMap() {
 	}
 }
 
-int main()
+int main(int argc, char* argv[])
 {
 	Init();
 
@@ -307,5 +307,6 @@ int main()
 	glfwDestroyWindow(window);
 	glfwTerminate();
 	return 0;
+
 }
 
