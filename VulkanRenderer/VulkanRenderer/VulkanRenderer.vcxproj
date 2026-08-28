@@ -140,7 +140,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>VK_USE_PLATFORM_WIN32_KHR</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;$(SolutionDir)/VulkanRenderer;$(SolutionDir)Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -159,7 +159,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>VK_USE_PLATFORM_WIN32_KHR</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;$(SolutionDir)/VulkanRenderer;$(SolutionDir)Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -177,6 +177,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="GlobalStructs.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Model\Mesh.cpp" />
     <ClCompile Include="Model\Model.cpp" />
     <ClCompile Include="Model\Texture.cpp" />
@@ -186,19 +187,17 @@
     <ClCompile Include="Tools\PipelineBuilder.cpp" />
     <ClCompile Include="Tools\SamplerBuilder.cpp" />
     <ClCompile Include="Utils.cpp" />
-    <ClCompile Include="vulkan.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="VulkanRenderer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="VulkanWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.hpp" />
     <ClInclude Include="GlobalStructs.hpp" />
     <ClInclude Include="Lights.hpp" />
+    <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Model\Material.hpp" />
     <ClInclude Include="Model\Mesh.hpp" />
     <ClInclude Include="Model\Model.hpp" />
@@ -210,6 +209,7 @@
     <ClInclude Include="Tools\PipelineBuilder.hpp" />
     <ClInclude Include="Tools\SamplerBuilder.hpp" />
     <ClInclude Include="Tools\Utils.hpp" />
+    <ClInclude Include="VulkanWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DefaultFragmentShader.frag" />

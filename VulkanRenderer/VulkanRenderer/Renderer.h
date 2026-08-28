@@ -2,11 +2,15 @@
 
 #define GLFW_INCLUDE_VULKAN
 #include<GLFW/glfw3.h>
+#include<QVulkanWindow>
+#include<QElapsedTimer>
+#include <Windows.h>
 #include<vector>
 #include <stdexcept>
 #include <functional>
 #include "Tools/Utils.hpp"
 #include "GlobalStructs.hpp"
+#include "VulkanWindow.h"
 
 struct RendererCustomFuncs {
 	std::function<bool(VkPhysicalDevice device)> checkSuitableDeviceFunc = nullptr;
@@ -17,8 +21,9 @@ struct RendererCustomFuncs {
 };
 const int MAX_FRAMES_IN_FLIGHT = 2;
 const int MAX_NUM_TEXTURE_BINDING = 8;
+class VulkanWindow;
 
-class Renderer {
+class Renderer{
 
 public:
 	std::function<bool(VkPhysicalDevice device)> checkSuitableDeviceFunc = [](VkPhysicalDevice device) {return false;};
@@ -32,7 +37,7 @@ public:
 	};
 	std::function<void(VkCommandBuffer, VkFramebuffer, uint32_t)> renderFunc = nullptr;
 
-public:
+
 	VkPhysicalDevice physicalDevice = { VK_NULL_HANDLE };
 	VkDevice device = { VK_NULL_HANDLE };
 	VkQueue graphicsQueue = { VK_NULL_HANDLE };
@@ -41,6 +46,34 @@ public:
 	std::vector<VkDescriptorSet>texDescriptorSets;
 	VkDescriptorSetLayout texDescriptorSetLayout = VK_NULL_HANDLE;
 	VkDescriptorPool texDescriptorPool = VK_NULL_HANDLE;
+
+	void Init();
+	void Render();
+	void Clean();
+	static Renderer* GetInstance();
+	static Renderer* GetInstance(VulkanWindow* window, RendererCustomFuncs* funcs);
+	void UpdateVertexUniformBuffer(uint32_t currentImage, GlobalStructs::VertexShaderUBO& ubo);
+	void UpdateFragUniformBuffer(uint32_t currentImage, GlobalStructs::FragmentShaderUBO& ubo);
+	void ResetTimer();
+#pragma region Getter Functions
+	//Gettter Functions
+	const VkPipeline GetPipeline() const { return  defaultPipeline; }
+	const VkPipelineLayout GetPipelineLayout() const { return defaultPipelineLayout; }
+	const VkRenderPass GetRenderPass() const { return defaultRenderpass; }
+	const VkExtent2D GetSwapChainExtent() const { return swapChainExtent; }
+	const VkDescriptorSet GetDescriptorSet(uint32_t currentFrame) const { return isInitialized ? descriptorSets[currentFrame] : VK_NULL_HANDLE; }
+	const VkSampler GetDefaultSampler() const { return defaultSampler; }
+	const VkDescriptorSetLayout GetDefaultDescriptorSetLayout() const { return defaultDescriptorSetLayout; }
+	const VkBuffer GetVertexUniformBuffer(uint32_t currentFrame) const { return vertexUniformBuffers[currentFrame]; }
+	const VkBuffer GetFragUniformBuffer(uint32_t currentFrame) const { return fragUniformBuffers[currentFrame]; }
+	const VkDescriptorSetLayout GetTextureDebugDescriptorSetLayout() const { return textureDebugDescriptorSetLayout; }
+	const VkPipelineLayout GetTextureDebugPipelineLayout() const { return textureDebugPipelineLayout; };
+	const VkPipeline GetTextureDebugPipeline() const { return textureDebugPipeline; }
+	const VkDescriptorSet GetTextureDebugDescriptorSet(uint32_t currentFrame) const { return textureDebugDescriptorSets[currentFrame]; }
+	const VkSwapchainKHR GetSwapChain() const { return swapChain; }
+	const float GetDeltaTime();
+#pragma endregion
+
 private:
 #ifdef NDEBUG
 	const bool enableValidationLayer = false;
@@ -53,7 +86,7 @@ private:
 	const std::vector<const char*> validationLayers = {
 		"VK_LAYER_KHRONOS_validation"
 	};
-	GLFWwindow* window = nullptr;
+	VulkanWindow* window = nullptr;
 	VkInstance instance = {VK_NULL_HANDLE};
 	VkDebugUtilsMessengerEXT debugMessenger = { VK_NULL_HANDLE };
 	VkSurfaceKHR surface = { VK_NULL_HANDLE };
@@ -95,43 +128,12 @@ private:
 	std::vector<VkSemaphore> renderFinishedSemaphores;
 	std::vector<VkFence> inFlightFences;
 	bool framebufferResized = false;
-	float deltaTime = 0.0f;
-	float lastTime = 0.0f;
-public:
-	void Init();
-	void Render();
-	void Clean();
-	static Renderer* GetInstance();
-	static Renderer* GetInstance(GLFWwindow* window, RendererCustomFuncs* funcs);
-	void UpdateVertexUniformBuffer(uint32_t currentImage, GlobalStructs::VertexShaderUBO& ubo);
-	void UpdateFragUniformBuffer(uint32_t currentImage, GlobalStructs::FragmentShaderUBO& ubo);
-
-#pragma region Getter Functions
-	//Gettter Functions
-	const VkPipeline GetPipeline() const { return  defaultPipeline; }
-	const VkPipelineLayout GetPipelineLayout() const { return defaultPipelineLayout; }
-	const VkRenderPass GetRenderPass() const { return defaultRenderpass; }
-	const VkExtent2D GetSwapChainExtent() const { return swapChainExtent; }
-	const VkDescriptorSet GetDescriptorSet(uint32_t currentFrame) const { return isInitialized ? descriptorSets[currentFrame] : VK_NULL_HANDLE; }
-	const VkSampler GetDefaultSampler() const { return defaultSampler; }
-	const VkDescriptorSetLayout GetDefaultDescriptorSetLayout() const { return defaultDescriptorSetLayout; }
-	const VkBuffer GetVertexUniformBuffer(uint32_t currentFrame) const { return vertexUniformBuffers[currentFrame]; }
-	const VkBuffer GetFragUniformBuffer(uint32_t currentFrame) const { return fragUniformBuffers[currentFrame]; }
-	const VkDescriptorSetLayout GetTextureDebugDescriptorSetLayout() const { return textureDebugDescriptorSetLayout; }
-	const VkPipelineLayout GetTextureDebugPipelineLayout() const{ return textureDebugPipelineLayout; };
-	const VkPipeline GetTextureDebugPipeline() const { return textureDebugPipeline; }
-	const VkDescriptorSet GetTextureDebugDescriptorSet(uint32_t currentFrame) const { return textureDebugDescriptorSets[currentFrame]; }
-	const float GetDeltaTime() { 
-		float curTime = glfwGetTime();
-		deltaTime = curTime - lastTime;
-		lastTime = curTime;
-		return deltaTime; 
-	}
-#pragma endregion
-
+	qint64 lastTime = 0.0f;
+	
+	QElapsedTimer timer;
 private:
 	//block copy constructor, assignment opperation for singleton pattern. 
-	Renderer(GLFWwindow* wd, RendererCustomFuncs* funcs);
+	Renderer(VulkanWindow* wd, RendererCustomFuncs* funcs);
 	Renderer& operator=(const Renderer& rhs) = delete;
 	Renderer(const Renderer& rhs) = delete;
 	~Renderer() { 
@@ -164,6 +166,7 @@ private:
 	VkExtent2D ChooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
 	void CleanUpSwapChain();
 	void RecreateSwapChain();
-private:
-	static void FramebufferResizeCallback(GLFWwindow* window, int width, int height);
+public:
+
+	void FramebufferResizeCallback();
 };

@@ -1,8 +1,10 @@
 ﻿#define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #define GLFW_INCLUDE_VULKAN
 #include<GLFW/glfw3.h>
+#include<QApplication>
 #include <iostream>
 #include <array>
+#include "VulkanWindow.h"
 #include "Renderer.h"
 #include "Camera.hpp"
 #include "Tools/Utils.hpp"
@@ -19,7 +21,7 @@ void CreateShadowMap(int, VkCommandBuffer);
 const uint32_t WIDTH = 800;
 const uint32_t HEIGHT = 600;
 glm::vec3 pos;
-GLFWwindow* window;
+VulkanWindow* window;
 Renderer* renderer;
 Camera mainCamera;
 DirectionalLight sun;
@@ -41,7 +43,7 @@ std::vector<VkDescriptorSet> shadowDescriptorSets;
 VkDescriptorPool shadowDescriptorPool;
 float modelScale = 0.1f;
 
-void Clean() {
+void Clean(Renderer* renderer) {
 	model.Clean();
 	plane.Clean();
 	shadowMap.Clean();
@@ -57,6 +59,7 @@ void Clean() {
 	vkDestroyPipeline(renderer->device, shadowMapPipeline, nullptr);
 	vkDestroyPipelineLayout(renderer->device, shadowMapPipeLayout, nullptr);
 	vkDestroyRenderPass(renderer->device, shadowMapRenderPass, nullptr);
+	renderer->Clean();
 }
 #pragma region Renderer custom function
 
@@ -136,30 +139,35 @@ void drawFunc(VkCommandBuffer commandBuffer, VkFramebuffer framebuffer, uint32_t
 #pragma endregion
 
 #pragma region Input Callbacks
-void ProcessInput(GLFWwindow* window, float deltaTime) {
+void ProcessInput(Qt::Key key, float deltaTime) {
 	CAMERA_MOVERMENT type = CAMERA_MOVERMENT::NONE;
-	if (glfwGetKey(window, GLFW_KEY_W)) {
+	switch (key)
+	{
+	case Qt::Key::Key_W:
 		type = CAMERA_MOVERMENT::FORWARD;
-	}
-	else if (glfwGetKey(window, GLFW_KEY_S)) {
+		break;
+	case Qt::Key::Key_S:
 		type = CAMERA_MOVERMENT::BACK;
-	}
-	else if (glfwGetKey(window, GLFW_KEY_A)) {
+		break;
+	case Qt::Key::Key_A:
 		type = CAMERA_MOVERMENT::LEFT;
-	}
-	else if (glfwGetKey(window, GLFW_KEY_D)) {
+		break;
+	case Qt::Key::Key_D:
 		type = CAMERA_MOVERMENT::RIGHT;
-	}
-	else if (glfwGetKey(window, GLFW_KEY_E)) {
+		break;
+	case Qt::Key::Key_E:
 		type = CAMERA_MOVERMENT::UP;
-	}
-	else if (glfwGetKey(window, GLFW_KEY_Q)) {
+		break;
+	case Qt::Key::Key_Q:
 		type = CAMERA_MOVERMENT::DOWN;
+		break;
+	default:
+		break;
 	}
 	mainCamera.ProcessKeyInput(type, deltaTime);
 }
-void mouse_Callback(GLFWwindow* window, double xPos_in, double yPos_in) {
-	if (glfwGetMouseButton(window, 1) == GLFW_PRESS) {
+void mouse_Callback(Qt::MouseButton btn, double xPos_in, double yPos_in) {
+	if (btn == Qt::MouseButton::RightButton) {
 		mainCamera.ProcessMouseMove(static_cast<float>(xPos_in), static_cast<float>(yPos_in));
 	}
 	else {
@@ -174,12 +182,9 @@ void Init() {
 		exit(EXIT_FAILURE);
 	}
 	//init window
-	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API); //GLFW was originally designed to create an OpenGL context											  
-												  //we need to tell it to not create an OpenGL context
-	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-	window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan Engine", nullptr, nullptr);
+	window = new VulkanWindow();
 	//set callback Func
-	glfwSetCursorPosCallback(window, mouse_Callback);
+	//glfwSetCursorPosCallback(window, mouse_Callback);
 
 	//set custom function
 	RendererCustomFuncs funcs;
@@ -189,7 +194,9 @@ void Init() {
 	funcs.checkSwapPresentModeFunc = CheckSwapPresentMode;
 	funcs.renderFunc = drawFunc;
 	renderer = Renderer::GetInstance(window, &funcs);
-
+	window->SetRenderer(renderer);
+	window->SetKeyProcessCallback(ProcessInput);
+	window->SetMouseCallback(mouse_Callback);
 }
 void CreateShadowMap(int currentFrame, VkCommandBuffer CommandBuffer) {
 	//render
@@ -279,6 +286,9 @@ void PrepareShadowMap() {
 
 int main(int argc, char* argv[])
 {
+
+	QApplication app(argc, argv);
+
 	Init();
 
 	model.LoadModel(renderer, "Assets/lubricant_spray_4k.gltf/lubricant_spray_4k.gltf");
@@ -291,20 +301,11 @@ int main(int argc, char* argv[])
 	sun.intensity = 2.0f;
 	frag_ubo.dirLight = sun;
 	PrepareShadowMap();
-	while (!glfwWindowShouldClose(window)) {
-		glfwPollEvents();
-		float deltaTime = renderer->GetDeltaTime();
-		//key input
-		ProcessInput(window, deltaTime);
-		//render
-		renderer->Render();
-		printf("x: %f, y: %f, z: %f\n", mainCamera.position.x, mainCamera.position.y, mainCamera.position.z);
-	}
-
+	window->mainCamera = &mainCamera;
+	window->show();
+	app.exec();
 	vkDeviceWaitIdle(renderer->device);
-	Clean();
-	renderer->Clean();
-	glfwDestroyWindow(window);
+	Clean(renderer);
 	glfwTerminate();
 	return 0;
 

@@ -9,13 +9,15 @@
 #include <array>
 #include <Tools/DescriptorBuilder.hpp>
 
+
 using namespace Utils;
 Renderer* Renderer::rendererInstance = nullptr;
 bool Renderer::isInitialized = false;
+#pragma region constructor
 
-Renderer::Renderer(GLFWwindow* wd, RendererCustomFuncs* funcs) : window(wd) {
-	glfwSetWindowUserPointer(window, this);
-	glfwSetFramebufferSizeCallback(window, FramebufferResizeCallback);
+Renderer::Renderer(VulkanWindow* wd, RendererCustomFuncs* funcs) : window(wd) {
+	//glfwSetWindowUserPointer(window, this);
+	//glfwSetFramebufferSizeCallback(window, FramebufferResizeCallback);
 	if (funcs->checkSuitableDeviceFunc != nullptr) checkSuitableDeviceFunc = funcs->checkSuitableDeviceFunc;
 	if (funcs->setPhysicalDeviceFeaturesFunc != nullptr) setPhysicalDeviceFeaturesFunc = funcs->setPhysicalDeviceFeaturesFunc;
 	checkSwapPresentModeFunc = funcs->checkSwapPresentModeFunc;
@@ -26,6 +28,9 @@ Renderer::Renderer(GLFWwindow* wd, RendererCustomFuncs* funcs) : window(wd) {
 		rendererInstance = this;
 	}
 }
+
+#pragma endregion
+
 Renderer* Renderer::GetInstance() {
 	if (rendererInstance == nullptr) {
 		std::cout << "Please create Renderer instance!\n";
@@ -38,7 +43,7 @@ Renderer* Renderer::GetInstance() {
 	else return rendererInstance;
 }
 
-Renderer* Renderer::GetInstance(GLFWwindow* window, RendererCustomFuncs* funcs) {
+Renderer* Renderer::GetInstance(VulkanWindow* window, RendererCustomFuncs* funcs) {
 	if (rendererInstance == nullptr) {
 		rendererInstance = new Renderer(window, funcs);
 	}
@@ -67,6 +72,7 @@ void Renderer::Init() {
 	CreateCommandBuffers();
 	CreateSyncObject();
 	CreateTextureDebugResources();
+	timer.start();
 	isInitialized = true;
 }
 void Renderer::Clean() {
@@ -154,7 +160,11 @@ void Renderer::SetupDebugMessenger() {
 }
 
 void Renderer::CreateSurface() {
-	if (glfwCreateWindowSurface(instance, window, nullptr, &surface) != VK_SUCCESS) {
+	VkWin32SurfaceCreateInfoKHR createInfo = {};
+	createInfo.sType = VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR;
+	createInfo.hwnd = reinterpret_cast<HWND>(window->winId());
+	createInfo.hinstance = GetModuleHandle(NULL);
+	if (vkCreateWin32SurfaceKHR(instance,&createInfo, nullptr, &surface) != VK_SUCCESS) {
 		throw std::runtime_error("failed to create window surface!");
 	}
 }
@@ -287,8 +297,7 @@ VkExtent2D Renderer::ChooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabiliti
 	}
 	else {
 		int width, height;
-		glfwGetFramebufferSize(window, &width, &height);
-
+		window->GetFramebufferSize(&width, &height);
 		VkExtent2D actualExtent = {
 			static_cast<uint32_t>(width),
 			static_cast<uint32_t>(height)
@@ -535,7 +544,6 @@ void Renderer::CreateTextureDebugResources() {
 }
 
 void Renderer::Render() {
-
 	vkWaitForFences(device, 1, &inFlightFences[currentFrame], VK_TRUE, UINT64_MAX);
 
 	uint32_t imageIdx;
@@ -599,11 +607,15 @@ void Renderer::CleanUpSwapChain() {
 }
 void Renderer::RecreateSwapChain() {
 	int width = 0, height = 0;
-	glfwGetFramebufferSize(window, &width, &height);
-	while (width == 0 || height == 0) {
-		glfwGetFramebufferSize(window, &width, &height);
-		glfwWaitEvents();
-	}// when minimizing window
+	window->GetFramebufferSize(&width, &height);
+	// when minimizing window
+	if (width == 0 || height == 0) {
+		//vkDeviceWaitIdle(device);
+
+		//CleanUpSwapChain();
+		return;
+	}
+
 	vkDeviceWaitIdle(device);
 
 	CleanUpSwapChain();
@@ -621,10 +633,20 @@ void Renderer::UpdateVertexUniformBuffer(uint32_t currentFrame, GlobalStructs::V
 void Renderer::UpdateFragUniformBuffer(uint32_t currentFrame, GlobalStructs::FragmentShaderUBO& ubo) {
 	memcpy(fragUniformBuffersMapped[currentFrame], &ubo, sizeof(ubo));
 }
+const float Renderer::GetDeltaTime() {
+		qint64 curTime = timer.nsecsElapsed();
+		float deltaTime = static_cast<float>(curTime - lastTime)/ 1000000000.0f; //nsec-> sec
+		lastTime = curTime;
+		return deltaTime;
+}
 
+void Renderer::ResetTimer() {
+	lastTime = 0;
+	timer.restart();
+	return;
+}
 #pragma region callback Function
-void Renderer::FramebufferResizeCallback(GLFWwindow* window, int width, int height) {
-	auto app = reinterpret_cast<Renderer*>(glfwGetWindowUserPointer(window));
-	app->framebufferResized = true;
+void Renderer::FramebufferResizeCallback() {
+	framebufferResized = true;
 }
 #pragma endregion

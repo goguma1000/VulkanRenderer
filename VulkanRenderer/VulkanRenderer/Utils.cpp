@@ -4,10 +4,7 @@
 namespace Utils
 {
 	std::vector<const char*> Utils::GetRequiredExtension(bool enableValidationLayer) {
-		uint32_t glfwExtensionCount(0);
-		const char** glfwExtensions;
-		glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
-		std::vector<const char*> extensions(glfwExtensions, glfwExtensions + glfwExtensionCount);
+		std::vector<const char*> extensions{VK_KHR_SURFACE_EXTENSION_NAME, VK_KHR_WIN32_SURFACE_EXTENSION_NAME};
 		extensions.push_back(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
 		if (enableValidationLayer) {
 			extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
