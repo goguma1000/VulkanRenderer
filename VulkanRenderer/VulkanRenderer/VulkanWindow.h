@@ -9,8 +9,8 @@ class Renderer;
 class VulkanWindow : public QWindow
 {
 public:
-	VulkanWindow (int _width = 800, int _height = 600);
-	~VulkanWindow ();
+	VulkanWindow(int _width = 800, int _height = 600);
+	~VulkanWindow();
 	void GetFramebufferSize(int* width, int* height);
 	void SetRenderer(Renderer* _renderer);
 	void SetKeyProcessCallback(std::function<void(Qt::Key, float)>_func);
@@ -32,4 +32,6 @@ private:
 	std::function<void(Qt::MouseButton, float, float)>mouseCallBackFunc = nullptr;
 	int pressedKey = 0;
 	int pressedMouseBtn = 0;
+
+	void renderScene();
 };

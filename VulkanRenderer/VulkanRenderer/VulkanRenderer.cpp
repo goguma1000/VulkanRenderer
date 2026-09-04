@@ -4,6 +4,7 @@
 #include<QApplication>
 #include <iostream>
 #include <array>
+#include "MainWindow.h"
 #include "VulkanWindow.h"
 #include "Renderer.h"
 #include "Camera.hpp"
@@ -302,7 +303,10 @@ int main(int argc, char* argv[])
 	frag_ubo.dirLight = sun;
 	PrepareShadowMap();
 	window->mainCamera = &mainCamera;
-	window->show();
+	MainWindow* mainUI = new MainWindow(window);
+	
+	mainUI->resize(1200, 800);
+	mainUI->show();
 	app.exec();
 	vkDeviceWaitIdle(renderer->device);
 	Clean(renderer);

@@ -610,9 +610,9 @@ void Renderer::RecreateSwapChain() {
 	window->GetFramebufferSize(&width, &height);
 	// when minimizing window
 	if (width == 0 || height == 0) {
-		//vkDeviceWaitIdle(device);
+		vkDeviceWaitIdle(device);
 
-		//CleanUpSwapChain();
+		CleanUpSwapChain();
 		return;
 	}
 

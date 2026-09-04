@@ -1,11 +1,16 @@
 #pragma once
 #include<QWidget>
-class MainWindow : public QWidget
+
+#include<QMainWindow>
+#include"VulkanWindow.h"
+class MainWindow : public QMainWindow
 {
+#pragma region constructor
 public:
-	MainWindow();
+	MainWindow(VulkanWindow* vulkanWindow);
 	~MainWindow();
 
 private:
 
+#pragma endregion
 };

@@ -2,14 +2,13 @@
 
 VulkanWindow::VulkanWindow::VulkanWindow(int _width, int _height)
 {
-	this->setWidth(_width);
-	this->setHeight(_height);
+	resize(_width, _height);
 	this->setSurfaceType(QSurface::VulkanSurface);
 }
 
 VulkanWindow::VulkanWindow ::~VulkanWindow()
 {
-	
+
 }
 #pragma region public func
 void VulkanWindow::GetFramebufferSize(int* width, int* height) {
@@ -34,25 +33,24 @@ void VulkanWindow::SetMouseCallback(std::function<void(Qt::MouseButton, float, f
 }
 #pragma endregion
 
+#pragma region private function
+void VulkanWindow::renderScene() {
+	float deltatime = renderer->GetDeltaTime();
+	if (keyProcessCallbackFunc != nullptr) {
+		keyProcessCallbackFunc(Qt::Key(pressedKey), deltatime);
+	}
+	renderer->Render();
+	requestUpdate();
+}
+#pragma endregion
+
 
 #pragma region override functions
 bool VulkanWindow::event(QEvent* event) {
-	switch (event->type()){
+	switch (event->type()) {
 	case QEvent::UpdateRequest: {
 		if (isExposed()) {
-			float deltatime = renderer->GetDeltaTime();
-			if (keyProcessCallbackFunc != nullptr) {
-				keyProcessCallbackFunc(Qt::Key(pressedKey), deltatime);
-			}
-			renderer->Render();
-			requestUpdate();
-		}
-		return true;
-	}
-	case QEvent::WindowStateChange: {
-		if (windowState() & Qt::WindowState::WindowMinimized) {
-			std::cout << "WindowState : " << windowState() << "\n";
-			return true;
+			renderScene();
 		}
 		break;
 	}
@@ -62,22 +60,21 @@ bool VulkanWindow::event(QEvent* event) {
 		break;
 	}
 	default:
-		return QWindow::event(event);
 		break;
 	}
+	return QWindow::event(event);
 }
 
 void VulkanWindow::exposeEvent(QExposeEvent* event) {
-	Q_UNUSED(event);
 	if (isExposed()) {
 		renderer->ResetTimer();
-		requestUpdate();
+		//first frame render
+		renderScene();
 	}
 }
 
 void VulkanWindow::resizeEvent(QResizeEvent* event) {
 	if (renderer == nullptr) return;
-	//std::cout << "ReCreate Swapchain\n";
 	renderer->FramebufferResizeCallback();
 }
 
@@ -87,11 +84,11 @@ void VulkanWindow::keyPressEvent(QKeyEvent* event) {
 }
 
 void VulkanWindow::keyReleaseEvent(QKeyEvent* event) {
-	if(event->key() == pressedKey) pressedKey = 0;
+	if (event->key() == pressedKey) pressedKey = 0;
 }
 
 void VulkanWindow::mousePressEvent(QMouseEvent* event) {
-	if(pressedMouseBtn ==  Qt::MouseButton::NoButton ) pressedMouseBtn = event->button();
+	if (pressedMouseBtn == Qt::MouseButton::NoButton) pressedMouseBtn = event->button();
 }
 
 void VulkanWindow::mouseReleaseEvent(QMouseEvent* event) {
@@ -99,7 +96,6 @@ void VulkanWindow::mouseReleaseEvent(QMouseEvent* event) {
 }
 
 void VulkanWindow::mouseMoveEvent(QMouseEvent* event) {
-	if (mouseCallBackFunc != nullptr) mouseCallBackFunc(Qt::MouseButton(pressedMouseBtn) , event->globalPosition().x(), event->globalPosition().y());
+	if (mouseCallBackFunc != nullptr) mouseCallBackFunc(Qt::MouseButton(pressedMouseBtn), event->globalPosition().x(), event->globalPosition().y());
 }
 #pragma endregion
-
