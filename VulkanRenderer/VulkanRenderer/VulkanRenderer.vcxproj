@@ -186,6 +186,7 @@
     <ClCompile Include="Tools\FrameBuffer.cpp" />
     <ClCompile Include="Tools\PipelineBuilder.cpp" />
     <ClCompile Include="Tools\SamplerBuilder.cpp" />
+    <ClCompile Include="UI\FloatSlider.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="VulkanRenderer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -209,6 +210,7 @@
     <ClInclude Include="Tools\PipelineBuilder.hpp" />
     <ClInclude Include="Tools\SamplerBuilder.hpp" />
     <ClInclude Include="Tools\Utils.hpp" />
+    <QtMoc Include="UI\FloatSlider.h" />
     <ClInclude Include="VulkanWindow.h" />
   </ItemGroup>
   <ItemGroup>

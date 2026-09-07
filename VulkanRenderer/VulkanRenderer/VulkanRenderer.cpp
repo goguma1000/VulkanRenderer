@@ -284,6 +284,11 @@ void PrepareShadowMap() {
 		throw std::runtime_error("failed to create sampler!");
 	}
 }
+void initUI(MainWindow* mainUI) {
+	mainUI->AddFSlider("w_light", &frag_ubo.dirLight.w_Light, 0.001f, 0.08f);
+	mainUI->resize(1200, 800);
+	mainUI->show();
+}
 
 int main(int argc, char* argv[])
 {
@@ -304,9 +309,7 @@ int main(int argc, char* argv[])
 	PrepareShadowMap();
 	window->mainCamera = &mainCamera;
 	MainWindow* mainUI = new MainWindow(window);
-	
-	mainUI->resize(1200, 800);
-	mainUI->show();
+	initUI(mainUI);
 	app.exec();
 	vkDeviceWaitIdle(renderer->device);
 	Clean(renderer);

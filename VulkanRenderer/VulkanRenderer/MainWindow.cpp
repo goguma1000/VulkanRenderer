@@ -1,10 +1,6 @@
 #include<QDockWidget>
-#include <QVBoxLayout>
-#include <QSlider>
+#include"UI/FloatSlider.h"
 #include"MainWindow.h"
-#include<QMenubar>
-#include<QSplitter>
-#include<QTimer>
 
 #pragma endregion constructor
 
@@ -15,25 +11,42 @@ MainWindow::MainWindow(VulkanWindow* vulkanwindow) {
 	setCentralWidget(wrapper);
 	
 	
-
-	QMenuBar* menu = menuBar();
-
+	menu = menuBar();
 	menu->addMenu(tr("File"));
 	menu->addMenu(tr("Edit"));
 	menu->addMenu(tr("View"));
 
-	
 
-
-	QDockWidget* inspectorWidget = new QDockWidget(tr("inspector"), this);
+	inspectorWidget = new QDockWidget(tr("inspector"), this);
 	inspectorWidget->setAllowedAreas(Qt::DockWidgetArea::RightDockWidgetArea);
-	QLayout* inspectorLayout = new QVBoxLayout();
-	inspectorWidget->setLayout(inspectorLayout);
 	addDockWidget(Qt::DockWidgetArea::RightDockWidgetArea, inspectorWidget);
+
+	inspectorContents = new QWidget();
+	contentLayout = new QVBoxLayout();
+	contentLayout->setAlignment(Qt::AlignmentFlag::AlignTop);
+
+
+	inspectorContents->setLayout(contentLayout);
+	inspectorWidget->setWidget(inspectorContents);
 }
+
 
 MainWindow::~MainWindow() {
 	
 }
 
 #pragma endregion
+
+#pragma region public function
+void MainWindow::AddFSlider(const char* title, float* value, float min, float max, int precision) {
+	QFormLayout* layout = new QFormLayout(this);
+	FloatSlider* slider = new FloatSlider(value, min, max, precision);
+	layout->addRow(tr(title), slider);
+	contentLayout->addLayout(layout);
+}
+#pragma endregion
+
+#pragma region private function
+
+#pragma endregion
+

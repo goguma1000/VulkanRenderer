@@ -19,6 +19,9 @@
     <Filter Include="소스 파일\Tools">
       <UniqueIdentifier>{8a2b1f2e-4e20-4c5e-9224-c1e83561cae6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\UI">
+      <UniqueIdentifier>{6ba1cf20-f54d-45a8-947e-16b561e35cdf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VulkanRenderer.cpp">
@@ -62,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="MainWindow.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\FloatSlider.cpp">
+      <Filter>소스 파일\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,5 +139,10 @@
     <None Include="TextureDebug.frag">
       <Filter>소스 파일</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="UI\FloatSlider.h">
+      <Filter>소스 파일\UI</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>

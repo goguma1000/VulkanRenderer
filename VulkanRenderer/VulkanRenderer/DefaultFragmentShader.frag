@@ -13,6 +13,7 @@ struct DirectionalLight{
 	float intensity;
 	float zNear;
 	float zFar;
+	float w_Light;
 };
 
 layout(set = 1, binding = 0) uniform sampler2D textures[]; 
@@ -83,7 +84,7 @@ float PCF(vec3 projCoord, vec2 W_penumbra){
 
 float PCSS(vec4 lightSpaceFragPos){
 	float shadow = 1.0f;
-	float W_light = tan(PI/720);
+	float W_light = ubo.dirLight.w_Light;
 	float zNear = ubo.dirLight.zNear;
 	float zFar =  ubo.dirLight.zFar;
 	vec3 projCoord = lightSpaceFragPos.xyz / lightSpaceFragPos.w;

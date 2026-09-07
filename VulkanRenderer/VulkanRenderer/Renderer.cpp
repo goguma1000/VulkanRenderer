@@ -16,8 +16,6 @@ bool Renderer::isInitialized = false;
 #pragma region constructor
 
 Renderer::Renderer(VulkanWindow* wd, RendererCustomFuncs* funcs) : window(wd) {
-	//glfwSetWindowUserPointer(window, this);
-	//glfwSetFramebufferSizeCallback(window, FramebufferResizeCallback);
 	if (funcs->checkSuitableDeviceFunc != nullptr) checkSuitableDeviceFunc = funcs->checkSuitableDeviceFunc;
 	if (funcs->setPhysicalDeviceFeaturesFunc != nullptr) setPhysicalDeviceFeaturesFunc = funcs->setPhysicalDeviceFeaturesFunc;
 	checkSwapPresentModeFunc = funcs->checkSwapPresentModeFunc;

@@ -8,6 +8,7 @@ struct alignas(16)DirectionalLight{
 	float intensity = 0.5f;
 	float zNear = 0.1f;
 	float zFar = 8.0f;
+	float w_Light = tanf(glm::radians(0.25f));
 	DirectionalLight(): direction(glm::normalize(glm::vec3(1, 1, 0))), intensity(0.5f){}
 	DirectionalLight(glm::vec3 dir, float _intensity = 0.5f, float _zNear = 0.1f, float _zFar = 8.0f) : direction(dir), intensity(_intensity), zNear(_zNear), zFar(_zFar){}
 };
