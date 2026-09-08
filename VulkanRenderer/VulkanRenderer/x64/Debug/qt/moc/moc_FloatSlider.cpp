@@ -59,7 +59,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSFloatSliderENDCLASS[] = {
 };
 
 Q_CONSTINIT const QMetaObject FloatSlider::staticMetaObject = { {
-    QMetaObject::SuperData::link<QSlider::staticMetaObject>(),
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
     qt_meta_stringdata_CLASSFloatSliderENDCLASS.offsetsAndSizes,
     qt_meta_data_CLASSFloatSliderENDCLASS,
     qt_static_metacall,
@@ -89,12 +89,12 @@ void *FloatSlider::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_CLASSFloatSliderENDCLASS.stringdata0))
         return static_cast<void*>(this);
-    return QSlider::qt_metacast(_clname);
+    return QWidget::qt_metacast(_clname);
 }
 
 int FloatSlider::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QSlider::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     return _id;
 }
 QT_WARNING_POP

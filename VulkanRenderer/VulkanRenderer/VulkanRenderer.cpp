@@ -285,7 +285,7 @@ void PrepareShadowMap() {
 	}
 }
 void initUI(MainWindow* mainUI) {
-	mainUI->AddFSlider("w_light", &frag_ubo.dirLight.w_Light, 0.001f, 0.08f);
+	mainUI->AddFSlider("w_light", &frag_ubo.dirLight.w_Light, 0.001f, 0.08f,5);
 	mainUI->resize(1200, 800);
 	mainUI->show();
 }
@@ -308,6 +308,7 @@ int main(int argc, char* argv[])
 	frag_ubo.dirLight = sun;
 	PrepareShadowMap();
 	window->mainCamera = &mainCamera;
+
 	MainWindow* mainUI = new MainWindow(window);
 	initUI(mainUI);
 	app.exec();

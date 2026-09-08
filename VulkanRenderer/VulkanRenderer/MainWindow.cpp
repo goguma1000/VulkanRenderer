@@ -22,11 +22,9 @@ MainWindow::MainWindow(VulkanWindow* vulkanwindow) {
 	addDockWidget(Qt::DockWidgetArea::RightDockWidgetArea, inspectorWidget);
 
 	inspectorContents = new QWidget();
-	contentLayout = new QVBoxLayout();
+	contentLayout = new QVBoxLayout(inspectorContents);
 	contentLayout->setAlignment(Qt::AlignmentFlag::AlignTop);
 
-
-	inspectorContents->setLayout(contentLayout);
 	inspectorWidget->setWidget(inspectorContents);
 }
 
@@ -39,7 +37,7 @@ MainWindow::~MainWindow() {
 
 #pragma region public function
 void MainWindow::AddFSlider(const char* title, float* value, float min, float max, int precision) {
-	QFormLayout* layout = new QFormLayout(this);
+	QFormLayout* layout = new QFormLayout();
 	FloatSlider* slider = new FloatSlider(value, min, max, precision);
 	layout->addRow(tr(title), slider);
 	contentLayout->addLayout(layout);
