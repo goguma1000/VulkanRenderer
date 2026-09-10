@@ -4,6 +4,7 @@
 #include<QApplication>
 #include <iostream>
 #include <array>
+#include <unordered_set>
 #include "MainWindow.h"
 #include "VulkanWindow.h"
 #include "Renderer.h"
@@ -140,33 +141,36 @@ void drawFunc(VkCommandBuffer commandBuffer, VkFramebuffer framebuffer, uint32_t
 #pragma endregion
 
 #pragma region Input Callbacks
-void ProcessInput(Qt::Key key, float deltaTime) {
+void ProcessInput(unordered_set<Qt::Key> buffer, float deltaTime) {
 	CAMERA_MOVERMENT type = CAMERA_MOVERMENT::NONE;
-	switch (key)
-	{
-	case Qt::Key::Key_W:
-		type = CAMERA_MOVERMENT::FORWARD;
-		break;
-	case Qt::Key::Key_S:
-		type = CAMERA_MOVERMENT::BACK;
-		break;
-	case Qt::Key::Key_A:
-		type = CAMERA_MOVERMENT::LEFT;
-		break;
-	case Qt::Key::Key_D:
-		type = CAMERA_MOVERMENT::RIGHT;
-		break;
-	case Qt::Key::Key_E:
-		type = CAMERA_MOVERMENT::UP;
-		break;
-	case Qt::Key::Key_Q:
-		type = CAMERA_MOVERMENT::DOWN;
-		break;
-	default:
-		break;
+	for (auto key : buffer) {
+		switch (key)
+		{
+		case Qt::Key::Key_W:
+			type = CAMERA_MOVERMENT::FORWARD;
+			break;
+		case Qt::Key::Key_S:
+			type = CAMERA_MOVERMENT::BACK;
+			break;
+		case Qt::Key::Key_A:
+			type = CAMERA_MOVERMENT::LEFT;
+			break;
+		case Qt::Key::Key_D:
+			type = CAMERA_MOVERMENT::RIGHT;
+			break;
+		case Qt::Key::Key_E:
+			type = CAMERA_MOVERMENT::UP;
+			break;
+		case Qt::Key::Key_Q:
+			type = CAMERA_MOVERMENT::DOWN;
+			break;
+		default:
+			break;
+		}
+		mainCamera.ProcessKeyInput(type, deltaTime);
 	}
-	mainCamera.ProcessKeyInput(type, deltaTime);
 }
+
 void mouse_Callback(Qt::MouseButton btn, double xPos_in, double yPos_in) {
 	if (btn == Qt::MouseButton::RightButton) {
 		mainCamera.ProcessMouseMove(static_cast<float>(xPos_in), static_cast<float>(yPos_in));

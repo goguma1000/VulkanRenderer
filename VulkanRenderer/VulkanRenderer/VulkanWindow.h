@@ -2,6 +2,7 @@
 #include <QWindow>
 #include <QKeyEvent>
 #include <functional>
+#include <unordered_set>
 #include "Renderer.h"
 #include "Camera.hpp"
 
@@ -13,7 +14,7 @@ public:
 	~VulkanWindow();
 	void GetFramebufferSize(int* width, int* height);
 	void SetRenderer(Renderer* _renderer);
-	void SetKeyProcessCallback(std::function<void(Qt::Key, float)>_func);
+	void SetKeyProcessCallback(std::function<void(std::unordered_set<Qt::Key>&, float)>_func);
 	void SetMouseCallback(std::function<void(Qt::MouseButton, float, float)>_func);
 	Camera* mainCamera = nullptr;
 	bool initialized = false;
@@ -28,10 +29,10 @@ protected:
 	void mousePressEvent(QMouseEvent* event)override;
 private:
 	Renderer* renderer = nullptr;
-	std::function<void(Qt::Key, float)>keyProcessCallbackFunc = nullptr;
+	std::function<void(std::unordered_set<Qt::Key>&, float)>keyProcessCallbackFunc = nullptr;
 	std::function<void(Qt::MouseButton, float, float)>mouseCallBackFunc = nullptr;
 	int pressedKey = 0;
 	int pressedMouseBtn = 0;
-
+	std::unordered_set<Qt::Key> keyBuffer = {};
 	void renderScene();
 };

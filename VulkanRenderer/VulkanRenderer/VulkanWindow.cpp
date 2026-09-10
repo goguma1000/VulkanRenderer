@@ -20,7 +20,7 @@ void VulkanWindow::SetRenderer(Renderer* _renderer) {
 	renderer = _renderer;
 }
 
-void VulkanWindow::SetKeyProcessCallback(std::function<void(Qt::Key, float)>_func) {
+void VulkanWindow::SetKeyProcessCallback(std::function<void(std::unordered_set<Qt::Key>&, float)>_func) {
 	if (_func != nullptr) keyProcessCallbackFunc = _func;
 	else std::cout << "KeyProcessCallback function is nullptr!\n";
 	return;
@@ -37,7 +37,7 @@ void VulkanWindow::SetMouseCallback(std::function<void(Qt::MouseButton, float, f
 void VulkanWindow::renderScene() {
 	float deltatime = renderer->GetDeltaTime();
 	if (keyProcessCallbackFunc != nullptr) {
-		keyProcessCallbackFunc(Qt::Key(pressedKey), deltatime);
+		keyProcessCallbackFunc(keyBuffer, deltatime);
 	}
 	renderer->Render();
 	requestUpdate();
@@ -55,7 +55,7 @@ bool VulkanWindow::event(QEvent* event) {
 		break;
 	}
 	case QEvent::FocusOut: {
-		pressedKey = 0;
+		keyBuffer.clear();
 		pressedMouseBtn = 0;
 		break;
 	}
@@ -80,15 +80,16 @@ void VulkanWindow::resizeEvent(QResizeEvent* event) {
 
 void VulkanWindow::keyPressEvent(QKeyEvent* event) {
 	if (windowState() & Qt::WindowState::WindowMinimized) return;
-	pressedKey = event->key();
+	keyBuffer.insert(Qt::Key(event->key()));
 }
 
 void VulkanWindow::keyReleaseEvent(QKeyEvent* event) {
-	if (event->key() == pressedKey) pressedKey = 0;
+	keyBuffer.erase(Qt::Key(event->key()));
 }
 
 void VulkanWindow::mousePressEvent(QMouseEvent* event) {
 	if (pressedMouseBtn == Qt::MouseButton::NoButton) pressedMouseBtn = event->button();
+	
 }
 
 void VulkanWindow::mouseReleaseEvent(QMouseEvent* event) {
